@@ -1,7 +1,9 @@
-package com.erdemtsynduev.vgikgagsbutton;
+package com.erdemtsynduev.vgikgagsbutton.screen.main;
 
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
+
+import com.erdemtsynduev.vgikgagsbutton.R;
 
 public class MainActivity extends AppCompatActivity {
 
