@@ -43,6 +43,7 @@ dependencies {
     annotationProcessor deps.butterknife.compiler
 
     implementation deps.timber
+    implementation deps.sdpAndroid
 
     testImplementation deps.junit
     androidTestImplementation deps.testRunner

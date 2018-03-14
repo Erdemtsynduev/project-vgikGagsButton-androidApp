@@ -22,6 +22,7 @@ buildscript {
                     'compiler': "com.jakewharton:butterknife-compiler:${versions.butterknife}",
             ],
             'timber'     : 'com.jakewharton.timber:timber:4.6.1',
+            'sdpAndroid' : 'com.intuit.sdp:sdp-android:1.0.5',
             'junit'      : 'junit:junit:4.12',
             'testRunner' : 'com.android.support.test:runner:1.0.1',
             'espresso'   : [
