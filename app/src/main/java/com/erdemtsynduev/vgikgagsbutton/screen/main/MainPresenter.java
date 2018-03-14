@@ -1,7 +1,10 @@
 package com.erdemtsynduev.vgikgagsbutton.screen.main;
 
+import android.content.Context;
 import android.media.MediaPlayer;
 import android.support.annotation.NonNull;
+
+import com.erdemtsynduev.vgikgagsbutton.R;
 
 import static com.erdemtsynduev.vgikgagsbutton.utils.Utils.checkNotNull;
 
@@ -22,23 +25,40 @@ public class MainPresenter implements MainContract.Presenter {
     }
 
     @Override
-    public void playSound(TypeSound typeSound) {
+    public void playSound(TypeSound typeSound, Context context) {
         switch (typeSound) {
             case CSKA_SOUND:
-                mediaPlayer = MediaPlayer.create(context, R.raw.sound);
+                playingSound(context, R.raw.feduk_cska);
                 break;
             case PENALTI_SOUND:
-                mPresenter.setFiltering(MovieFilterType.TOP_RATED_MOVIES);
+                playingSound(context, R.raw.this_penalti);
                 break;
             case GAZEEV_SOUND:
-                mPresenter.setFiltering(MovieFilterType.TOP_RATED_MOVIES);
+                playingSound(context, R.raw.gazzaev_ebalniki);
                 break;
             case PASHA_SOUND:
-                mPresenter.setFiltering(MovieFilterType.TOP_RATED_MOVIES);
+                playingSound(context, R.raw.pasha);
                 break;
             case DAYS_SOUND:
-                mPresenter.setFiltering(MovieFilterType.TOP_RATED_MOVIES);
+                playingSound(context, R.raw.red_white_days);
                 break;
+        }
+    }
+
+    private void playingSound(Context context, int resid) {
+        try {
+            if (mediaPlayer == null) {
+                mediaPlayer = MediaPlayer.create(context, resid);
+                mediaPlayer.setLooping(true);
+                mediaPlayer.start();
+            } else {
+                mediaPlayer.stop();
+                mediaPlayer.reset();
+                mediaPlayer.release();
+                mediaPlayer = null;
+            }
+        } catch (Exception e) {
+            e.printStackTrace();
         }
     }
 }

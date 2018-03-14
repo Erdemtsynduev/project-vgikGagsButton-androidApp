@@ -1,5 +1,6 @@
 package com.erdemtsynduev.vgikgagsbutton.screen.main;
 
+import android.content.Context;
 import android.graphics.Color;
 
 import com.erdemtsynduev.vgikgagsbutton.BasePresenter;
@@ -15,7 +16,7 @@ public interface MainContract {
 
     interface Presenter extends BasePresenter {
 
-        void playSound (TypeSound typeSound);
+        void playSound (TypeSound typeSound, Context context);
 
     }
 }
