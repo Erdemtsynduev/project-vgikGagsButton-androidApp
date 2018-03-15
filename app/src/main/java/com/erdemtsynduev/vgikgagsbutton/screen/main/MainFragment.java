@@ -78,27 +78,27 @@ public class MainFragment extends Fragment implements MainContract.View {
 
     @OnClick(R.id.btn_cska)
     public void clickCska() {
-        mPresenter.playSound(TypeSound.CSKA_SOUND, getContext());
+        mPresenter.playSound(TypeSound.CSKA_SOUND);
     }
 
     @OnClick(R.id.btn_penalti)
     public void clickPenlti() {
-        mPresenter.playSound(TypeSound.PENALTI_SOUND, getContext());
+        mPresenter.playSound(TypeSound.PENALTI_SOUND);
     }
 
     @OnClick(R.id.btn_shut_up)
     public void clickShutUp() {
-        mPresenter.playSound(TypeSound.GAZEEV_SOUND, getContext());
+        mPresenter.playSound(TypeSound.GAZEEV_SOUND);
     }
 
     @OnClick(R.id.btn_pasha)
     public void clickPasha() {
-        mPresenter.playSound(TypeSound.PASHA_SOUND, getContext());
+        mPresenter.playSound(TypeSound.PASHA_SOUND);
     }
 
     @OnClick(R.id.btn_redWhite_days)
     public void clickRedWhiteDays() {
-        mPresenter.playSound(TypeSound.DAYS_SOUND, getContext());
+        mPresenter.playSound(TypeSound.DAYS_SOUND);
     }
 
     @Override

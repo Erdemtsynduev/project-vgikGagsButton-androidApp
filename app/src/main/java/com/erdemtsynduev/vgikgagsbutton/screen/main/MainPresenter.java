@@ -1,6 +1,5 @@
 package com.erdemtsynduev.vgikgagsbutton.screen.main;
 
-import android.content.Context;
 import android.support.annotation.NonNull;
 
 import com.erdemtsynduev.vgikgagsbutton.controller.SoundController;
@@ -23,7 +22,7 @@ public class MainPresenter implements MainContract.Presenter {
     }
 
     @Override
-    public void playSound(TypeSound typeSound, Context context) {
+    public void playSound(TypeSound typeSound) {
         soundController.playSound(typeSound);
     }
 }
