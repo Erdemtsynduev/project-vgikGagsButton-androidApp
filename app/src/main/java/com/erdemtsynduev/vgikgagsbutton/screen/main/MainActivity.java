@@ -4,6 +4,7 @@ import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 
 import com.erdemtsynduev.vgikgagsbutton.R;
+import com.erdemtsynduev.vgikgagsbutton.controller.SoundController;
 import com.erdemtsynduev.vgikgagsbutton.utils.ActivityUtils;
 
 import butterknife.ButterKnife;
@@ -26,6 +27,8 @@ public class MainActivity extends AppCompatActivity {
             ActivityUtils.addFragmentToActivity(getSupportFragmentManager(),
                     mainFragment, R.id.contentFrame);
         }
+
+        SoundController.getInstance().initController(this);
 
         new MainPresenter(mainFragment);
     }
