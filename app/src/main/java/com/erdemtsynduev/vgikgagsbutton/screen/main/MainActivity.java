@@ -6,15 +6,13 @@ import android.os.Bundle;
 import com.erdemtsynduev.vgikgagsbutton.R;
 import com.erdemtsynduev.vgikgagsbutton.controller.SoundController;
 import com.erdemtsynduev.vgikgagsbutton.utils.ActivityUtils;
+import com.google.android.gms.ads.MobileAds;
 
 import butterknife.ButterKnife;
 
 public class MainActivity extends AppCompatActivity {
 
-    private static final String CURRENT_FILTERING_KEY = "CURRENT_FILTERING_KEY";
-
     private SoundController soundController;
-    private MainPresenter mMainPresenter;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -36,17 +34,13 @@ public class MainActivity extends AppCompatActivity {
         soundController.initController(this);
 
         new MainPresenter(mainFragment);
+
+        MobileAds.initialize(this, "YOUR_ADMOB_APP_ID");
     }
 
     @Override
     public void onSaveInstanceState(Bundle outState) {
         super.onSaveInstanceState(outState);
-    }
-
-    @Override
-    protected void onDestroy() {
-        soundController.clear();
-        super.onDestroy();
     }
 
     @Override

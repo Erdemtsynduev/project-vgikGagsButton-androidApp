@@ -11,6 +11,9 @@ import android.widget.Button;
 
 import com.erdemtsynduev.vgikgagsbutton.R;
 import com.erdemtsynduev.vgikgagsbutton.controller.SoundController;
+import com.google.android.gms.ads.AdListener;
+import com.google.android.gms.ads.AdRequest;
+import com.google.android.gms.ads.InterstitialAd;
 
 import butterknife.BindView;
 import butterknife.ButterKnife;
@@ -20,6 +23,8 @@ import butterknife.Unbinder;
 import static com.erdemtsynduev.vgikgagsbutton.utils.Utils.checkNotNull;
 
 public class MainFragment extends Fragment implements MainContract.View {
+
+    private InterstitialAd mInterstitialAd;
 
     @BindView(R.id.btn_cska)
     Button mCskaButton;
@@ -48,6 +53,18 @@ public class MainFragment extends Fragment implements MainContract.View {
     @Override
     public void onCreate(@Nullable Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
+
+        // Create the InterstitialAd and set the adUnitId.
+        mInterstitialAd = new InterstitialAd(getContext());
+        mInterstitialAd.setAdUnitId("ca-app-pub-3940256099942544/1033173712");
+        mInterstitialAd.loadAd(new AdRequest.Builder().build());
+
+        mInterstitialAd.setAdListener(new AdListener() {
+            @Override
+            public void onAdClosed() {
+
+            }
+        });
     }
 
     @Override
@@ -65,7 +82,6 @@ public class MainFragment extends Fragment implements MainContract.View {
         soundController = SoundController.getInstance();
         return view;
     }
-
 
     @Override
     public void setPresenter(@NonNull MainContract.Presenter presenter) {
@@ -129,6 +145,13 @@ public class MainFragment extends Fragment implements MainContract.View {
             mRedWhitesDaysButton.setSelected(true);
         } else {
             mRedWhitesDaysButton.setSelected(false);
+        }
+    }
+
+    private void showInterstitial() {
+        // Show the ad if it's ready. Otherwise toast and restart the game.
+        if (mInterstitialAd != null && mInterstitialAd.isLoaded()) {
+            mInterstitialAd.show();
         }
     }
 }
