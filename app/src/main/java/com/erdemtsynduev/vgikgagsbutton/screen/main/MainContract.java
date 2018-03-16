@@ -7,6 +7,7 @@ public interface MainContract {
 
     interface View extends BaseView<MainContract.Presenter> {
 
+        void setSelectedButton();
 
     }
 

@@ -10,6 +10,7 @@ import android.view.ViewGroup;
 import android.widget.Button;
 
 import com.erdemtsynduev.vgikgagsbutton.R;
+import com.erdemtsynduev.vgikgagsbutton.controller.SoundController;
 
 import butterknife.BindView;
 import butterknife.ButterKnife;
@@ -35,6 +36,7 @@ public class MainFragment extends Fragment implements MainContract.View {
     @BindView(R.id.btn_redWhite_days)
     Button mRedWhitesDaysButton;
 
+    private SoundController soundController;
     private MainContract.Presenter mPresenter;
     private Unbinder unbinder;
 
@@ -60,6 +62,7 @@ public class MainFragment extends Fragment implements MainContract.View {
                              Bundle savedInstanceState) {
         View view = inflater.inflate(R.layout.fragment_main, container, false);
         unbinder = ButterKnife.bind(this, view);
+        soundController = SoundController.getInstance();
         return view;
     }
 
@@ -98,5 +101,34 @@ public class MainFragment extends Fragment implements MainContract.View {
     @OnClick(R.id.btn_redWhite_days)
     public void clickRedWhiteDays() {
         mPresenter.playSound(TypeSound.DAYS_SOUND);
+    }
+
+    @Override
+    public void setSelectedButton() {
+        if (soundController.getMediaPlayerCska() != null) {
+            mCskaButton.setSelected(true);
+        } else {
+            mCskaButton.setSelected(false);
+        }
+        if (soundController.getMediaPlayerPenalti() != null) {
+            mPenaltyButton.setSelected(true);
+        } else {
+            mPenaltyButton.setSelected(false);
+        }
+        if (soundController.getMediaPlayerGazeev() != null) {
+            mShutUpButton.setSelected(true);
+        } else {
+            mShutUpButton.setSelected(false);
+        }
+        if (soundController.getMediaPlayerPasha() != null) {
+            mPashaButton.setSelected(true);
+        } else {
+            mPashaButton.setSelected(false);
+        }
+        if (soundController.getMediaPlayerDays() != null) {
+            mRedWhitesDaysButton.setSelected(true);
+        } else {
+            mRedWhitesDaysButton.setSelected(false);
+        }
     }
 }

@@ -18,11 +18,12 @@ public class MainPresenter implements MainContract.Presenter {
 
     @Override
     public void start() {
-
+        mMainView.setSelectedButton();
     }
 
     @Override
     public void playSound(TypeSound typeSound) {
         soundController.playSound(typeSound);
+        mMainView.setSelectedButton();
     }
 }

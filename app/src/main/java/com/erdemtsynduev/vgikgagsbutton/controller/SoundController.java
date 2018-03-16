@@ -47,6 +47,26 @@ public class SoundController {
         }
     }
 
+    public MediaPlayer getMediaPlayerCska() {
+        return mediaPlayerCska;
+    }
+
+    public MediaPlayer getMediaPlayerPenalti() {
+        return mediaPlayerPenalti;
+    }
+
+    public MediaPlayer getMediaPlayerGazeev() {
+        return mediaPlayerGazeev;
+    }
+
+    public MediaPlayer getMediaPlayerPasha() {
+        return mediaPlayerPasha;
+    }
+
+    public MediaPlayer getMediaPlayerDays() {
+        return mediaPlayerDays;
+    }
+
     private void playingSoundCska() {
         if (mediaPlayerCska == null) {
             mediaPlayerCska = MediaPlayer.create(context, R.raw.feduk_cska);
@@ -113,20 +133,30 @@ public class SoundController {
     }
 
     public void clear() {
-        mediaPlayerCska.stop();
-        mediaPlayerCska.release();
-        mediaPlayerCska = null;
-        mediaPlayerPenalti.stop();
-        mediaPlayerPenalti.release();
-        mediaPlayerPenalti = null;
-        mediaPlayerGazeev.stop();
-        mediaPlayerGazeev.release();
-        mediaPlayerGazeev = null;
-        mediaPlayerPasha.stop();
-        mediaPlayerPasha.release();
-        mediaPlayerPasha = null;
-        mediaPlayerDays.stop();
-        mediaPlayerDays.release();
-        mediaPlayerDays = null;
+        if (mediaPlayerCska != null) {
+            mediaPlayerCska.stop();
+            mediaPlayerCska.release();
+            mediaPlayerCska = null;
+        }
+        if (mediaPlayerPenalti != null) {
+            mediaPlayerPenalti.stop();
+            mediaPlayerPenalti.release();
+            mediaPlayerPenalti = null;
+        }
+        if (mediaPlayerGazeev != null) {
+            mediaPlayerGazeev.stop();
+            mediaPlayerGazeev.release();
+            mediaPlayerGazeev = null;
+        }
+        if (mediaPlayerPasha != null) {
+            mediaPlayerPasha.stop();
+            mediaPlayerPasha.release();
+            mediaPlayerPasha = null;
+        }
+        if (mediaPlayerDays != null) {
+            mediaPlayerDays.stop();
+            mediaPlayerDays.release();
+            mediaPlayerDays = null;
+        }
     }
 }
