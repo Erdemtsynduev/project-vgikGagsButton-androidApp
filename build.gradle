@@ -8,6 +8,7 @@ buildscript {
             'supportLibrary': '27.0.2',
             'butterknife'   : '8.8.1',
             'espresso'      : '3.0.1',
+            'firebase'      : '11.8.0',
     ]
 
     ext.deps = [
@@ -21,6 +22,11 @@ buildscript {
                     'core'    : "com.jakewharton:butterknife:${versions.butterknife}",
                     'compiler': "com.jakewharton:butterknife-compiler:${versions.butterknife}",
             ],
+            'firebase'   : [
+                    'core': "com.google.firebase:firebase-core:${versions.firebase}",
+                    'ads' : "com.google.firebase:firebase-ads:${versions.firebase}",
+            ],
+            'crashlytics': 'com.crashlytics.sdk.android:crashlytics:2.9.1',
             'timber'     : 'com.jakewharton.timber:timber:4.6.1',
             'sdpAndroid' : 'com.intuit.sdp:sdp-android:1.0.5',
             'junit'      : 'junit:junit:4.12',
@@ -34,10 +40,15 @@ buildscript {
     repositories {
         google()
         jcenter()
+        maven {
+            url 'https://maven.fabric.io/public'
+        }
     }
 
     dependencies {
         classpath 'com.android.tools.build:gradle:3.0.1'
+        classpath 'com.google.gms:google-services:3.2.0'
+        classpath 'io.fabric.tools:gradle:1.25.1'
     }
 }
 
@@ -45,6 +56,9 @@ allprojects {
     repositories {
         google()
         jcenter()
+        maven {
+            url 'https://maven.google.com/'
+        }
     }
 }
 
