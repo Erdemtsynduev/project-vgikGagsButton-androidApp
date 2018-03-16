@@ -62,7 +62,7 @@ public class MainFragment extends Fragment implements MainContract.View {
         mInterstitialAd.setAdListener(new AdListener() {
             @Override
             public void onAdClosed() {
-
+                mInterstitialAd.loadAd(new AdRequest.Builder().build());
             }
         });
     }
