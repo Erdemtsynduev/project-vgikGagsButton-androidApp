@@ -1,6 +1,5 @@
 package com.erdemtsynduev.vgikgagsbutton.screen.main;
 
-import android.graphics.Color;
 import android.os.Bundle;
 import android.support.annotation.NonNull;
 import android.support.annotation.Nullable;
@@ -82,7 +81,7 @@ public class MainFragment extends Fragment implements MainContract.View {
     }
 
     @OnClick(R.id.btn_penalti)
-    public void clickPenlti() {
+    public void clickPenalti() {
         mPresenter.playSound(TypeSound.PENALTI_SOUND);
     }
 
@@ -99,10 +98,5 @@ public class MainFragment extends Fragment implements MainContract.View {
     @OnClick(R.id.btn_redWhite_days)
     public void clickRedWhiteDays() {
         mPresenter.playSound(TypeSound.DAYS_SOUND);
-    }
-
-    @Override
-    public void showPressButton(String text, Color color) {
-
     }
 }

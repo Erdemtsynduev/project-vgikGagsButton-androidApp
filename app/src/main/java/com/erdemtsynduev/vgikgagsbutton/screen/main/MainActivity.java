@@ -11,6 +11,8 @@ import butterknife.ButterKnife;
 
 public class MainActivity extends AppCompatActivity {
 
+    private SoundController soundController;
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -27,8 +29,21 @@ public class MainActivity extends AppCompatActivity {
                     mainFragment, R.id.contentFrame);
         }
 
-        SoundController.getInstance().initController(this);
+        soundController = SoundController.getInstance();
+        soundController.initController(this);
 
         new MainPresenter(mainFragment);
+    }
+
+    @Override
+    protected void onDestroy() {
+        soundController.clear();
+        super.onDestroy();
+    }
+
+    @Override
+    public void onBackPressed() {
+        soundController.clear();
+        finish();
     }
 }
