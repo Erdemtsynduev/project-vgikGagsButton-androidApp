@@ -70,6 +70,7 @@ public class MainFragment extends Fragment implements MainContract.View {
     @Override
     public void onResume() {
         super.onResume();
+        showInterstitial();
         mPresenter.start();
     }
 
