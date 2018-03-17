@@ -15,5 +15,9 @@ public interface MainContract {
 
         void playSound(TypeSound typeSound);
 
+        void pauseAllSound();
+
+        void resumeAllSound();
+
     }
 }

@@ -62,6 +62,7 @@ public class MainFragment extends Fragment implements MainContract.View {
         mInterstitialAd.setAdListener(new AdListener() {
             @Override
             public void onAdClosed() {
+                mPresenter.resumeAllSound();
                 mInterstitialAd.loadAd(new AdRequest.Builder().build());
             }
         });
@@ -152,6 +153,7 @@ public class MainFragment extends Fragment implements MainContract.View {
     private void showInterstitial() {
         // Show the ad if it's ready. Otherwise toast and restart the game.
         if (mInterstitialAd != null && mInterstitialAd.isLoaded()) {
+            mPresenter.pauseAllSound();
             mInterstitialAd.show();
         }
     }

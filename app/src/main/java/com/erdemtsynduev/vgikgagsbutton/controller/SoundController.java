@@ -47,6 +47,42 @@ public class SoundController {
         }
     }
 
+    public void resumeAllSound() {
+        if (mediaPlayerCska != null) {
+            mediaPlayerCska.start();
+        }
+        if (mediaPlayerPenalti != null) {
+            mediaPlayerPenalti.start();
+        }
+        if (mediaPlayerGazeev != null) {
+            mediaPlayerGazeev.start();
+        }
+        if (mediaPlayerPasha != null) {
+            mediaPlayerPasha.start();
+        }
+        if (mediaPlayerDays != null) {
+            mediaPlayerDays.start();
+        }
+    }
+
+    public void pauseAllSound() {
+        if (mediaPlayerCska != null) {
+            mediaPlayerCska.pause();
+        }
+        if (mediaPlayerPenalti != null) {
+            mediaPlayerPenalti.pause();
+        }
+        if (mediaPlayerGazeev != null) {
+            mediaPlayerGazeev.pause();
+        }
+        if (mediaPlayerPasha != null) {
+            mediaPlayerPasha.pause();
+        }
+        if (mediaPlayerDays != null) {
+            mediaPlayerDays.pause();
+        }
+    }
+
     public MediaPlayer getMediaPlayerCska() {
         return mediaPlayerCska;
     }

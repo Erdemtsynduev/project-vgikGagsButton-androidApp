@@ -26,4 +26,14 @@ public class MainPresenter implements MainContract.Presenter {
         soundController.playSound(typeSound);
         mMainView.setSelectedButton();
     }
+
+    @Override
+    public void pauseAllSound() {
+        soundController.pauseAllSound();
+    }
+
+    @Override
+    public void resumeAllSound() {
+        soundController.resumeAllSound();
+    }
 }
