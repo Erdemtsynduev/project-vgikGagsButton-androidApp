@@ -9,6 +9,7 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.widget.Button;
 
+import com.erdemtsynduev.vgikgagsbutton.BuildConfig;
 import com.erdemtsynduev.vgikgagsbutton.R;
 import com.erdemtsynduev.vgikgagsbutton.controller.SoundController;
 import com.google.android.gms.ads.AdListener;
@@ -54,18 +55,7 @@ public class MainFragment extends Fragment implements MainContract.View {
     public void onCreate(@Nullable Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
 
-        // Create the InterstitialAd and set the adUnitId.
-        mInterstitialAd = new InterstitialAd(getContext());
-        mInterstitialAd.setAdUnitId("ca-app-pub-3940256099942544/1033173712");
-        mInterstitialAd.loadAd(new AdRequest.Builder().build());
-
-        mInterstitialAd.setAdListener(new AdListener() {
-            @Override
-            public void onAdClosed() {
-                mPresenter.resumeAllSound();
-                mInterstitialAd.loadAd(new AdRequest.Builder().build());
-            }
-        });
+        initInterstitial();
     }
 
     @Override
@@ -147,6 +137,23 @@ public class MainFragment extends Fragment implements MainContract.View {
             mRedWhitesDaysButton.setSelected(true);
         } else {
             mRedWhitesDaysButton.setSelected(false);
+        }
+    }
+
+    private void initInterstitial() {
+        // Create the InterstitialAd and set the adUnitId.
+        if (getActivity() != null) {
+            mInterstitialAd = new InterstitialAd(getActivity().getBaseContext());
+            mInterstitialAd.setAdUnitId(BuildConfig.AD_ID_INTERSTITIAL);
+            mInterstitialAd.loadAd(new AdRequest.Builder().build());
+
+            mInterstitialAd.setAdListener(new AdListener() {
+                @Override
+                public void onAdClosed() {
+                    mPresenter.resumeAllSound();
+                    mInterstitialAd.loadAd(new AdRequest.Builder().build());
+                }
+            });
         }
     }
 

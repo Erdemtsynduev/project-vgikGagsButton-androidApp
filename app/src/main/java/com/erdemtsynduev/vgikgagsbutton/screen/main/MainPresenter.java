@@ -11,7 +11,7 @@ public class MainPresenter implements MainContract.Presenter {
     private final MainContract.View mMainView;
     private SoundController soundController = SoundController.getInstance();
 
-    public MainPresenter(@NonNull MainContract.View tasksView) {
+    MainPresenter(@NonNull MainContract.View tasksView) {
         mMainView = checkNotNull(tasksView);
         mMainView.setPresenter(this);
     }

@@ -3,6 +3,7 @@ package com.erdemtsynduev.vgikgagsbutton.screen.main;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 
+import com.erdemtsynduev.vgikgagsbutton.BuildConfig;
 import com.erdemtsynduev.vgikgagsbutton.R;
 import com.erdemtsynduev.vgikgagsbutton.controller.SoundController;
 import com.erdemtsynduev.vgikgagsbutton.utils.ActivityUtils;
@@ -35,7 +36,7 @@ public class MainActivity extends AppCompatActivity {
 
         new MainPresenter(mainFragment);
 
-        MobileAds.initialize(this, "YOUR_ADMOB_APP_ID");
+        MobileAds.initialize(getBaseContext(), BuildConfig.AD_ID_KEY);
     }
 
     @Override
