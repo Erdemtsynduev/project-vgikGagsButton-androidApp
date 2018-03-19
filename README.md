@@ -6,6 +6,10 @@ The Android application allows you to play sound gags at the click of a button
 Samples demonstrating how to use:
 1. Basic Model‑View‑Presenter (MVP)
 
+Currently available on the Play store.
+
+<a href='https://play.google.com/store/apps/details?id=com.erdemtsynduev.vgikgagsbutton'><img alt='Get it on Google Play' src='https://play.google.com/intl/en_us/badges/images/generic/en_badge_web_generic.png' height='80px'/></a>
+
 Pre-requisites
 --------------
 Android SDK 27
