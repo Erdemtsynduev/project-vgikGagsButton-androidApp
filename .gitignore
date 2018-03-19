@@ -8,3 +8,4 @@
 .externalNativeBuild
 google-services.json
 keystore.properties
+*.jks
