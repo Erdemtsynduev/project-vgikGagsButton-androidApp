@@ -7,8 +7,6 @@ apply plugin: 'com.android.application'
 apply plugin: 'io.fabric'
 
 def keystorePropertiesFile = rootProject.file("keystore.properties")
-def keystoreProperties = new Properties()
-keystoreProperties.load(new FileInputStream(keystorePropertiesFile))
 
 android {
     compileSdkVersion versions.compileSdk
@@ -27,18 +25,21 @@ android {
 
     signingConfigs {
         release {
-            keyAlias keystoreProperties['keyAlias']
-            keyPassword keystoreProperties['keyPassword']
-            storeFile file(keystoreProperties['storeFile'])
-            storePassword keystoreProperties['storePassword']
+            if (keystorePropertiesFile.exists()) {
+                Properties keystoreProperties = new Properties()
+                keystoreProperties.load(new FileInputStream(keystorePropertiesFile))
+
+                keyAlias keystoreProperties['keyAlias']
+                keyPassword keystoreProperties['keyPassword']
+                storeFile file(keystoreProperties['storeFile'])
+                storePassword keystoreProperties['storePassword']
+            } else {
+                Console.println("!!! Not signing !!!")
+            }
         }
     }
 
     buildTypes {
-        applicationVariants.all { variant ->
-            variant.buildConfigField "String", "AD_ID_KEY", "\"" + keystoreProperties['adIdKey'] + "\""
-            variant.buildConfigField "String", "AD_ID_INTERSTITIAL", "\"" + keystoreProperties['adIdInterstitial'] + "\""
-        }
         release {
             minifyEnabled false
             useProguard true

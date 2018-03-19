@@ -9,11 +9,11 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.widget.Button;
 
-import com.erdemtsynduev.vgikgagsbutton.BuildConfig;
 import com.erdemtsynduev.vgikgagsbutton.R;
 import com.erdemtsynduev.vgikgagsbutton.controller.SoundController;
 import com.google.android.gms.ads.AdListener;
 import com.google.android.gms.ads.AdRequest;
+import com.google.android.gms.ads.AdView;
 import com.google.android.gms.ads.InterstitialAd;
 
 import butterknife.BindView;
@@ -26,6 +26,9 @@ import static com.erdemtsynduev.vgikgagsbutton.utils.Utils.checkNotNull;
 public class MainFragment extends Fragment implements MainContract.View {
 
     private InterstitialAd mInterstitialAd;
+
+    @BindView(R.id.adView)
+    AdView mAdView;
 
     @BindView(R.id.btn_cska)
     Button mCskaButton;
@@ -54,8 +57,6 @@ public class MainFragment extends Fragment implements MainContract.View {
     @Override
     public void onCreate(@Nullable Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-
-        initInterstitial();
     }
 
     @Override
@@ -72,6 +73,11 @@ public class MainFragment extends Fragment implements MainContract.View {
         View view = inflater.inflate(R.layout.fragment_main, container, false);
         unbinder = ButterKnife.bind(this, view);
         soundController = SoundController.getInstance();
+
+        //init Ad block
+        initAd();
+        initAdInterstitial();
+
         return view;
     }
 
@@ -140,11 +146,15 @@ public class MainFragment extends Fragment implements MainContract.View {
         }
     }
 
-    private void initInterstitial() {
+    private void initAd() {
+        mAdView.loadAd(new AdRequest.Builder().build());
+    }
+
+    private void initAdInterstitial() {
         // Create the InterstitialAd and set the adUnitId.
         if (getActivity() != null) {
             mInterstitialAd = new InterstitialAd(getActivity().getBaseContext());
-            mInterstitialAd.setAdUnitId(BuildConfig.AD_ID_INTERSTITIAL);
+            mInterstitialAd.setAdUnitId("ca-app-pub-6483320460779580/8143436648");
             mInterstitialAd.loadAd(new AdRequest.Builder().build());
 
             mInterstitialAd.setAdListener(new AdListener() {
