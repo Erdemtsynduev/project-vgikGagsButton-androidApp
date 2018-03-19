@@ -62,6 +62,7 @@ public class MainFragment extends Fragment implements MainContract.View {
     @Override
     public void onResume() {
         super.onResume();
+        initAd();
         showInterstitial();
         mPresenter.start();
     }
@@ -147,7 +148,9 @@ public class MainFragment extends Fragment implements MainContract.View {
     }
 
     private void initAd() {
-        mAdView.loadAd(new AdRequest.Builder().build());
+        if (mAdView != null) {
+            mAdView.loadAd(new AdRequest.Builder().build());
+        }
     }
 
     private void initAdInterstitial() {
