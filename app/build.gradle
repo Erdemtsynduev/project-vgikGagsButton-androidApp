@@ -4,7 +4,6 @@ def versionPatch = 0
 def versionBuild = 1
 
 apply plugin: 'com.android.application'
-apply plugin: 'io.fabric'
 
 android {
     compileSdkVersion versions.compileSdk
@@ -41,10 +40,6 @@ dependencies {
     implementation deps.support.constraintLayout
     implementation deps.support.design
 
-    implementation deps.firebase.core
-    implementation deps.firebase.ads
-    implementation deps.crashlytics
-
     implementation deps.butterknife.core
     annotationProcessor deps.butterknife.compiler
 
@@ -56,5 +51,3 @@ dependencies {
         exclude group: 'com.google.code.findbugs'
     }
 }
-
-apply plugin: 'com.google.gms.google-services'

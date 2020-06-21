@@ -11,10 +11,6 @@ import android.widget.Button;
 
 import com.erdemtsynduev.vgikgagsbutton.R;
 import com.erdemtsynduev.vgikgagsbutton.controller.SoundController;
-import com.google.android.gms.ads.AdListener;
-import com.google.android.gms.ads.AdRequest;
-import com.google.android.gms.ads.AdView;
-import com.google.android.gms.ads.InterstitialAd;
 
 import butterknife.BindView;
 import butterknife.ButterKnife;
@@ -24,11 +20,6 @@ import butterknife.Unbinder;
 import static com.erdemtsynduev.vgikgagsbutton.utils.Utils.checkNotNull;
 
 public class MainFragment extends Fragment implements MainContract.View {
-
-    private InterstitialAd mInterstitialAd;
-
-    @BindView(R.id.adView)
-    AdView mAdView;
 
     @BindView(R.id.btn_cska)
     Button mCskaButton;
@@ -62,8 +53,6 @@ public class MainFragment extends Fragment implements MainContract.View {
     @Override
     public void onResume() {
         super.onResume();
-        initAd();
-        showInterstitial();
         mPresenter.start();
     }
 
@@ -74,11 +63,6 @@ public class MainFragment extends Fragment implements MainContract.View {
         View view = inflater.inflate(R.layout.fragment_main, container, false);
         unbinder = ButterKnife.bind(this, view);
         soundController = SoundController.getInstance();
-
-        //init Ad block
-        initAd();
-        initAdInterstitial();
-
         return view;
     }
 
@@ -144,37 +128,6 @@ public class MainFragment extends Fragment implements MainContract.View {
             mRedWhitesDaysButton.setSelected(true);
         } else {
             mRedWhitesDaysButton.setSelected(false);
-        }
-    }
-
-    private void initAd() {
-        if (mAdView != null) {
-            mAdView.loadAd(new AdRequest.Builder().build());
-        }
-    }
-
-    private void initAdInterstitial() {
-        // Create the InterstitialAd and set the adUnitId.
-        if (getActivity() != null) {
-            mInterstitialAd = new InterstitialAd(getActivity().getBaseContext());
-            mInterstitialAd.setAdUnitId("ca-app-pub-6483320460779580/8143436648");
-            mInterstitialAd.loadAd(new AdRequest.Builder().build());
-
-            mInterstitialAd.setAdListener(new AdListener() {
-                @Override
-                public void onAdClosed() {
-                    mPresenter.resumeAllSound();
-                    mInterstitialAd.loadAd(new AdRequest.Builder().build());
-                }
-            });
-        }
-    }
-
-    private void showInterstitial() {
-        // Show the ad if it's ready. Otherwise toast and restart the game.
-        if (mInterstitialAd != null && mInterstitialAd.isLoaded()) {
-            mPresenter.pauseAllSound();
-            mInterstitialAd.show();
         }
     }
 }

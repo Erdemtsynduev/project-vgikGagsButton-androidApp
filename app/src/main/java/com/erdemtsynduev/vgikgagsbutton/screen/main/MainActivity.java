@@ -6,7 +6,6 @@ import android.os.Bundle;
 import com.erdemtsynduev.vgikgagsbutton.R;
 import com.erdemtsynduev.vgikgagsbutton.controller.SoundController;
 import com.erdemtsynduev.vgikgagsbutton.utils.ActivityUtils;
-import com.google.android.gms.ads.MobileAds;
 
 import butterknife.ButterKnife;
 
@@ -34,8 +33,6 @@ public class MainActivity extends AppCompatActivity {
         soundController.initController(this);
 
         new MainPresenter(mainFragment);
-
-        MobileAds.initialize(getBaseContext(), "ca-app-pub-6483320460779580~9627661281");
     }
 
     @Override
