@@ -1,61 +1,25 @@
 buildscript {
-
-    ext.versions = [
-            'compileSdk'    : 27,
-            'minSdk'        : 19,
-            'targetSdk'     : 27,
-
-            'supportLibrary': '27.0.2',
-            'butterknife'   : '8.8.1',
-            'espresso'      : '3.0.1',
-            'firebase'      : '11.8.0',
-    ]
-
-    ext.deps = [
-            'support'    : [
-                    'annotations'     : "com.android.support:support-annotations:${versions.supportLibrary}",
-                    'appCompat'       : "com.android.support:appcompat-v7:${versions.supportLibrary}",
-                    'design'          : "com.android.support:design:${versions.supportLibrary}",
-                    'constraintLayout': 'com.android.support.constraint:constraint-layout:1.0.2',
-            ],
-            'butterknife': [
-                    'core'    : "com.jakewharton:butterknife:${versions.butterknife}",
-                    'compiler': "com.jakewharton:butterknife-compiler:${versions.butterknife}",
-            ],
-            'firebase'   : [
-                    'core': "com.google.firebase:firebase-core:${versions.firebase}",
-                    'ads' : "com.google.firebase:firebase-ads:${versions.firebase}",
-            ],
-            'crashlytics': 'com.crashlytics.sdk.android:crashlytics:2.9.1',
-            'sdpAndroid' : 'com.intuit.sdp:sdp-android:1.0.5',
-            'junit'      : 'junit:junit:4.12',
-            'testRunner' : 'com.android.support.test:runner:1.0.1',
-            'espresso'   : [
-                    'core'   : "com.android.support.test.espresso:espresso-core:${versions.espresso}",
-                    'contrib': "com.android.support.test.espresso:espresso-contrib:${versions.espresso}",
-            ],
-    ]
-
+    ext {
+        kotlin_version = '1.3.72'
+    }
     repositories {
         google()
         jcenter()
-        maven {
-            url 'https://maven.fabric.io/public'
-        }
     }
 
     dependencies {
-        classpath 'com.android.tools.build:gradle:4.0.0'
+        classpath Deps.android_gradle_plugin
+        classpath Deps.kotlin_gradle_plugin
+        classpath "org.jetbrains.kotlin:kotlin-gradle-plugin:$kotlin_version"
     }
 }
 
 allprojects {
     repositories {
-        google()
         jcenter()
-        maven {
-            url 'https://maven.google.com/'
-        }
+        mavenCentral()
+        maven { url 'https://jitpack.io' }
+        google()
     }
 }
 
