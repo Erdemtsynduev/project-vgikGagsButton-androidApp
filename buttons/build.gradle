@@ -37,6 +37,8 @@ dependencies {
     implementation Deps.kotlin_stdlib
     implementation Deps.kotlin_coroutines_android
 
+    implementation 'com.github.SanojPunchihewa:GlowButton:1.0.0'
+
     implementation Deps.koin
     implementation Deps.koin_viewmodel
 
