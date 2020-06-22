@@ -1,15 +1,16 @@
 package com.erdemtsynduev.buttons
 
-import androidx.databinding.ObservableInt
+import android.content.Context
+import android.media.MediaPlayer
 import androidx.lifecycle.ViewModel
 
-class ButtonsViewModel : ViewModel() {
-
-    val mode = ObservableInt(Int.MIN_VALUE)
+class ButtonsViewModel(private val contextData: Context) : ViewModel() {
 
     fun playSound() = playTuturu()
 
-    private fun playTuturu(){
-        mode.set(1)
+    private fun playTuturu() {
+        val resId = contextData.resources.getIdentifier(R.raw.tuturu.toString(), "raw", contextData.packageName)
+        val mediaPlayer = MediaPlayer.create(contextData, resId)
+        mediaPlayer.start()
     }
 }
