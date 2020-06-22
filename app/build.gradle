@@ -59,5 +59,4 @@ dependencies {
     implementation project(Modules.baseui)
 
     testImplementation Deps.junit
-    kaptTest Deps.databinding_compiler
 }
