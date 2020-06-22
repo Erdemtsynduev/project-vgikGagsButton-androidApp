@@ -10,15 +10,157 @@
             type="com.erdemtsynduev.buttons.ButtonsViewModel" />
     </data>
 
-    <FrameLayout
+    <ScrollView
         android:layout_width="match_parent"
-        android:layout_height="match_parent">
+        android:layout_height="match_parent"
+        android:background="#0086c3">
 
-        <Button
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_gravity="center"
-            android:onClick="@{() -> viewModel.playSound()}"
-            android:text="Test" />
-    </FrameLayout>
+        <androidx.constraintlayout.widget.ConstraintLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content">
+
+            <com.google.android.material.button.MaterialButton
+                android:id="@+id/fragment_buttons_tuturu"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center"
+                android:layout_marginStart="16dp"
+                android:layout_marginTop="16dp"
+                android:onClick="@{() -> viewModel.playSoundTuturu()}"
+                android:text="@string/fragment_buttons_tuturu_text"
+                android:textColor="@color/colorWhiteText"
+                android:textSize="18sp"
+                app:backgroundTint="@color/colorBlack"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="parent" />
+
+            <com.google.android.material.button.MaterialButton
+                android:id="@+id/fragment_buttons_dejavu"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center"
+                android:layout_marginTop="16dp"
+                android:onClick="@{() -> viewModel.playSoundDejavu()}"
+                android:text="@string/fragment_buttons_dejavu_text"
+                android:textColor="@color/colorWhiteText"
+                android:textSize="18sp"
+                app:backgroundTint="@color/colorBlack"
+                app:layout_constraintStart_toStartOf="@+id/fragment_buttons_tuturu"
+                app:layout_constraintTop_toBottomOf="@+id/fragment_buttons_tuturu" />
+
+            <com.google.android.material.button.MaterialButton
+                android:id="@+id/fragment_buttons_jojo"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center"
+                android:layout_marginTop="16dp"
+                android:onClick="@{() -> viewModel.playSoundJojo()}"
+                android:text="@string/fragment_buttons_jojo_text"
+                android:textColor="@color/colorWhiteText"
+                android:textSize="18sp"
+                app:backgroundTint="@color/colorBlack"
+                app:layout_constraintStart_toStartOf="@+id/fragment_buttons_dejavu"
+                app:layout_constraintTop_toBottomOf="@+id/fragment_buttons_dejavu" />
+
+            <com.google.android.material.button.MaterialButton
+                android:id="@+id/fragment_buttons_meme"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center"
+                android:layout_marginTop="16dp"
+                android:onClick="@{() -> viewModel.playSoundMemeCredit()}"
+                android:text="@string/fragment_buttons_meme_credit_text"
+                android:textColor="@color/colorWhiteText"
+                android:textSize="18sp"
+                app:backgroundTint="@color/colorBlack"
+                app:layout_constraintStart_toStartOf="@+id/fragment_buttons_jojo"
+                app:layout_constraintTop_toBottomOf="@+id/fragment_buttons_jojo" />
+
+            <com.google.android.material.button.MaterialButton
+                android:id="@+id/fragment_buttons_message"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center"
+                android:layout_marginTop="16dp"
+                android:onClick="@{() -> viewModel.playSoundMessageSteam()}"
+                android:text="@string/fragment_buttons_message_steam_text"
+                android:textColor="@color/colorWhiteText"
+                android:textSize="18sp"
+                app:backgroundTint="@color/colorBlack"
+                app:layout_constraintStart_toStartOf="@+id/fragment_buttons_meme"
+                app:layout_constraintTop_toBottomOf="@+id/fragment_buttons_meme" />
+
+            <com.google.android.material.button.MaterialButton
+                android:id="@+id/fragment_buttons_mgs"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center"
+                android:layout_marginTop="16dp"
+                android:onClick="@{() -> viewModel.playSoundMgsWarning()}"
+                android:text="@string/fragment_buttons_mgs_warning_text"
+                android:textColor="@color/colorWhiteText"
+                android:textSize="18sp"
+                app:backgroundTint="@color/colorBlack"
+                app:layout_constraintStart_toStartOf="@+id/fragment_buttons_message"
+                app:layout_constraintTop_toBottomOf="@+id/fragment_buttons_message" />
+
+            <com.google.android.material.button.MaterialButton
+                android:id="@+id/fragment_buttons_nani"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center"
+                android:layout_marginTop="16dp"
+                android:onClick="@{() -> viewModel.playSoundNani()}"
+                android:text="@string/fragment_buttons_nani_text"
+                android:textColor="@color/colorWhiteText"
+                android:textSize="18sp"
+                app:backgroundTint="@color/colorBlack"
+                app:layout_constraintStart_toStartOf="@+id/fragment_buttons_mgs"
+                app:layout_constraintTop_toBottomOf="@+id/fragment_buttons_mgs" />
+
+            <com.google.android.material.button.MaterialButton
+                android:id="@+id/fragment_buttons_nyaa"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center"
+                android:layout_marginTop="16dp"
+                android:onClick="@{() -> viewModel.playSoundNyaa()}"
+                android:text="@string/fragment_buttons_nyaa_text"
+                android:textColor="@color/colorWhiteText"
+                android:textSize="18sp"
+                app:backgroundTint="@color/colorBlack"
+                app:layout_constraintStart_toStartOf="@+id/fragment_buttons_nani"
+                app:layout_constraintTop_toBottomOf="@+id/fragment_buttons_nani" />
+
+            <com.google.android.material.button.MaterialButton
+                android:id="@+id/fragment_buttons_roblox"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center"
+                android:layout_marginTop="16dp"
+                android:onClick="@{() -> viewModel.playSoundRoblox()}"
+                android:text="@string/fragment_buttons_roblox_text"
+                android:textColor="@color/colorWhiteText"
+                android:textSize="18sp"
+                app:backgroundTint="@color/colorBlack"
+                app:layout_constraintStart_toStartOf="@+id/fragment_buttons_nyaa"
+                app:layout_constraintTop_toBottomOf="@+id/fragment_buttons_nyaa" />
+
+            <com.google.android.material.button.MaterialButton
+                android:id="@+id/fragment_buttons_yeah"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center"
+                android:layout_marginTop="16dp"
+                android:layout_marginBottom="16dp"
+                android:onClick="@{() -> viewModel.playSoundYeah()}"
+                android:text="@string/fragment_buttons_yeah_text"
+                android:textColor="@color/colorWhiteText"
+                android:textSize="18sp"
+                app:backgroundTint="@color/colorBlack"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintStart_toStartOf="@+id/fragment_buttons_roblox"
+                app:layout_constraintTop_toBottomOf="@+id/fragment_buttons_roblox" />
+        </androidx.constraintlayout.widget.ConstraintLayout>
+    </ScrollView>
 </layout>
