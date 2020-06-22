@@ -16,7 +16,7 @@ object Versions {
 
     const val gradle_android = "4.0.0"
 
-    const val min_sdk = 21
+    const val min_sdk = 19
     const val target_sdk = 29
     const val compile_sdk = 29
     const val build_tools = "29.0.3"
